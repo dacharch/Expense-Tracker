@@ -36,6 +36,12 @@
     ],
     "experiments": {
       "typedRoutes": true
-    }
+    },
+    "extra": {
+      "eas": {
+        "projectId": "fc5d7d16-e9a4-4571-a2de-3829d1074c18"
+      }
+    },
+    "owner": "dachman"
   }
 }
