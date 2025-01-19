@@ -3,7 +3,6 @@ import { useEffect } from 'react';
 import * as Calendar from 'expo-calendar';
 import React, { useState } from 'react'
 import { View, Text, StyleSheet,  TouchableOpacity,Platform } from 'react-native';
-import { Pressable } from 'react-native-gesture-handler';
 
 const Index = () => {
   const [expense, setExpenses] = useState(0);
@@ -76,7 +75,6 @@ const Index = () => {
       </View>
 
       <View style={styles.records_container}>
-
 
   
       </View>
