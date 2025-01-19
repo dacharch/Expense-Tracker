@@ -2,15 +2,17 @@ import React from 'react'
 import { Pressable, View } from 'react-native'
 import { StyleSheet,Text } from 'react-native'
 import { useState } from 'react'
+import IncomeAssets from '../components/IncomeAssets'
+import ExpenseAssets from '../components/ExpenseAssets'
+
+
 
 const Addition = () => {
   const [selected,setSelected] = useState(false) ;
-
-
-  
-
   return (
-     <View style={styles.container}>  
+
+    <>
+         <View style={styles.container}>  
          <View>
             <Text style={styles.text_container}>Addition</Text>
          </View>
@@ -30,6 +32,11 @@ const Addition = () => {
          </View>
          </View>  
      </View>
+
+     <View>
+        {selected ?<IncomeAssets/>:  <ExpenseAssets/> }
+     </View>
+    </>
   )
 }
 
