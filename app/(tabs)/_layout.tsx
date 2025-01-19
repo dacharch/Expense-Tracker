@@ -3,6 +3,7 @@ import Ionicons from '@expo/vector-icons/Ionicons';
 
 
 export default function TabLayout() {
+
   return (
     <Tabs
     screenOptions={{
@@ -20,11 +21,11 @@ export default function TabLayout() {
     >
       <Tabs.Screen
         name="index"
-        
+
         options={{
           title: 'Home',
           tabBarIcon: ({ color, focused }) => (
-            <Ionicons name={focused ? 'receipt-sharp' : 'receipt-outline'} color={color} size={24} />
+            <Ionicons name={focused ? 'receipt-sharp' : 'receipt-outline'} color={color} size={30} />
           ),
         }}
       />
@@ -33,7 +34,7 @@ export default function TabLayout() {
         options={{
           title: 'Analysis',
           tabBarIcon: ({ color, focused }) => (
-            <Ionicons name={focused ? 'analytics-sharp' : 'analytics-sharp'} color={color} size={24}/>
+            <Ionicons name={focused ? 'analytics-sharp' : 'analytics-sharp'} color={color} size={30}/>
           ),
         }}
       />
@@ -42,10 +43,19 @@ export default function TabLayout() {
         options={{
           title: 'Reports',
           tabBarIcon: ({ color, focused }) => (
-            <Ionicons name={focused ? 'book-sharp' : 'book-outline'} color={color} size={24}/>
+            <Ionicons name={focused ? 'book-sharp' : 'book-outline'} color={color} size={30}/>
           ),
         }}
       />
+       <Tabs.Screen
+        name="Addition"
+        options={{
+          title: 'Addition',
+          tabBarIcon: ({ color, focused }) => (
+            <Ionicons name={focused ? 'add-circle' : 'add-circle-outline'} color={color} size={30}/>
+          ),
+        }}
+      />    
     </Tabs>
   );
 }
