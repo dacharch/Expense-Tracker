@@ -1,12 +1,13 @@
 import React from 'react'
-import { View,Text,StyleSheet, Pressable } from 'react-native'
+import { View,StyleSheet, Pressable } from 'react-native'
 import Icon from 'react-native-vector-icons/FontAwesome6';
 
 
 const IncomeAssets = () => {
+
+
   return (
      <View style={styles.container}>
-
       <View style={styles.icon_container}>
       <View style={styles.icon} >
         <Pressable>
