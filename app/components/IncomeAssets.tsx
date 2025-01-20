@@ -10,3 +10,5 @@ const IncomeAssets = () => {
 }
 
 export default IncomeAssets
+
+
