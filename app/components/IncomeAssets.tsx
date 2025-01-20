@@ -20,6 +20,21 @@ const IncomeAssets = () => {
               size={40}
            />
       </View>
+      <View style={styles.icon}>
+            <Icon
+               name="gift"
+               size={40}
+             />
+      </View>
+
+      <View style={styles.icon}>
+          <Icon
+              name="dollar"
+              size={40}
+           />
+      </View>
+
+      
       </View>
      </View>
   )
