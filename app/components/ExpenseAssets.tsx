@@ -3,9 +3,11 @@ import { View, StyleSheet, Pressable } from 'react-native'
 import Icon from 'react-native-vector-icons/FontAwesome'
 import Icon2 from 'react-native-vector-icons/Ionicons'
 import Icon3 from  'react-native-vector-icons/MaterialIcons'
-import Icon4 from 'react-native-vector-icons/Ionicons'
+import Icon4 from 'react-native-vector-icons/FontAwesome6'
 const ExpenseAssets = () => {
   return (
+
+
       <View style={styles.container}>
          <View style={styles.icon_container}>
 
@@ -45,6 +47,7 @@ const ExpenseAssets = () => {
                 </Pressable>
              </View>
          </View>
+         {/* Second Container*/}
          <View style={styles.icon_container}>
              <View style={styles.icon}>
                   <Pressable>
@@ -74,16 +77,14 @@ const ExpenseAssets = () => {
              </View>
              <View style={styles.icon}>
                   <Pressable>
-                       <Icon4
+                       <Icon2
                            name="people"
                            size={40}
                          />
                   </Pressable>
              </View>
          </View>
-
-         
-
+        
       </View>
   )
 }
