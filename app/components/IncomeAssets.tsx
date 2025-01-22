@@ -25,7 +25,7 @@ const IncomeAssets = () => {
               size={40}
            />
          </Pressable>
-         <Text style={styles.text_icon}>Wallet</Text>
+         <Text style={styles.text_icon}>Business</Text>
       </View>
 
       <View style={styles.icon}>
@@ -35,7 +35,7 @@ const IncomeAssets = () => {
                size={40}
              />
         </Pressable>
-        <Text style={styles.text_icon}>Wallet</Text>   
+        <Text style={styles.text_icon}>Gift</Text>   
       </View>
 
       <View style={styles.icon}>
@@ -45,7 +45,7 @@ const IncomeAssets = () => {
               size={40}
            />
         </Pressable>
-        <Text style={styles.text_icon}>Wallet</Text>
+        <Text style={styles.text_icon}>Other</Text>
       </View>
       </View>
      </View>
