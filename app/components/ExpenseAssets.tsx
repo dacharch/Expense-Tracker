@@ -90,9 +90,8 @@ const ExpenseAssets = () => {
             <Text style={styles.text_icon}>Social</Text>
        </View>
    </View>
-
-
-</View>  
+   </View>
+   
   )
 }
 
@@ -124,6 +123,48 @@ const styles =  StyleSheet.create({
       height:65,
       alignItems:'center',
       padding:10,
-   }
+   },
+
+   inputContainer: {
+      marginBottom: 20,
+    },
+    label: {
+      fontSize: 16,
+      marginBottom: 8,
+      color: "#555",
+    },
+    inputBox: {
+      flexDirection: "row",
+      justifyContent: "space-between",
+      alignItems: "center",
+      borderWidth: 1,
+      borderColor: "#ccc",
+      borderRadius: 8,
+      padding: 12,
+      backgroundColor: "#f9f9f9",
+    },
+    inputText: {
+      fontSize: 16,
+      color: "#333",
+    },
+    modalContainer: {
+      flex: 1,
+      justifyContent: "flex-end",
+      backgroundColor: "rgba(0, 0, 0, 0.5)",
+    },
+    keyboardContainer: {
+      backgroundColor: "#fff",
+      padding: 20,
+      borderTopLeftRadius: 16,
+      borderTopRightRadius: 16,
+    },
+    closeButton: {
+      alignSelf: "flex-end",
+      marginBottom: 20,
+    },
+    closeButtonText:{
+       color:'red'
+    }
 }) 
+
 export default ExpenseAssets
