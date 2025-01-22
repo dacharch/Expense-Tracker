@@ -1,5 +1,5 @@
 import React from 'react'
-import { View,StyleSheet, Pressable } from 'react-native'
+import { View,StyleSheet,Text, Pressable } from 'react-native'
 import Icon from 'react-native-vector-icons/FontAwesome6';
 
 
@@ -16,7 +16,7 @@ const IncomeAssets = () => {
              size={40}
           />
         </Pressable>
-         
+         <Text style={styles.text_icon}>Wallet</Text>
       </View>
       <View style={styles.icon}>
          <Pressable>
@@ -25,8 +25,9 @@ const IncomeAssets = () => {
               size={40}
            />
          </Pressable>
-          
+         <Text style={styles.text_icon}>Wallet</Text>
       </View>
+
       <View style={styles.icon}>
         <Pressable>
         <Icon
@@ -34,8 +35,9 @@ const IncomeAssets = () => {
                size={40}
              />
         </Pressable>
-           
+        <Text style={styles.text_icon}>Wallet</Text>   
       </View>
+
       <View style={styles.icon}>
         <Pressable>
         <Icon
@@ -43,7 +45,7 @@ const IncomeAssets = () => {
               size={40}
            />
         </Pressable>
-         
+        <Text style={styles.text_icon}>Wallet</Text>
       </View>
       </View>
      </View>
@@ -55,6 +57,15 @@ const styles = StyleSheet.create({
        padding:20,
        borderColor:'black',
   
+   },
+
+   text_icon:{
+     marginTop:20,
+     marginBottom:20,
+      height:30,
+      width:120,
+      textAlign:'center',
+      fontWeight:'bold',
    },
 
    icon_container:{
