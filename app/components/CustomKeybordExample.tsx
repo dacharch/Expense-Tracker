@@ -12,20 +12,22 @@ import { useMyContext } from "../context/AppProvider";
 
 const CustomKeyboardExample = () => {
 
-  const [inputValue, setInputValue] = useState("");
-  const [result,setResult] = useState('') ;
+ 
 
-  const {keyboardVisible,setKeyboardVisible} =useMyContext()
+
+  const {keyboardVisible,setKeyboardVisible,inputValue,setInputValue,result,setResult} =useMyContext()
 
   const handleKeyPress = (key:any) => {
     if (key === "BACKSPACE") {
-      setInputValue((prev) => prev.slice(0, -1)); 
+      setInputValue((prev: string | any[]) => prev.slice(0, -1)); 
     } else if(key ==="."){
-         setInputValue((prev)=>prev+key);
-    }else if(key ==="Check"){
-         setResult(inputValue) 
+         setInputValue((prev: any)=>prev+key);
+    }else if(key ==="CHECK"){
+         setKeyboardVisible(!keyboardVisible)
+         setResult(inputValue);
+         
     }else {
-      setInputValue((prev) => prev + key); 
+      setInputValue((prev: any) => prev + key); 
     }
 
   };
@@ -36,7 +38,7 @@ const CustomKeyboardExample = () => {
         transparent={true}
         visible={keyboardVisible}
         animationType="slide"
-        onRequestClose={() => setKeyboardVisible(false)}
+        
       >
         
         <View style={styles.modalContainer}>

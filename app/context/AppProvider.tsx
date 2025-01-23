@@ -8,15 +8,24 @@ interface AppProviderProps{
 interface MyContextType{
    keyboardVisible:boolean;
    setKeyboardVisible: (value:boolean) =>void;
+   shopping:string,
+   setShopping:(value:string) =>void;
+   result :string,
+   setResult: (value:string)=>void ;
+   inputValue:string,
+   setInputValue:(value:any)=>void
 }
 const MyContext = createContext<MyContextType|undefined>(undefined) ;
 
 export const AppProvider:React.FC<AppProviderProps>= ({children}:any) =>{
-    const [keyboardVisible,setKeyboardVisible] = useState(true) ;
+    const [keyboardVisible,setKeyboardVisible] = useState(false) ;
+    const [shopping,setShopping] = useState('Shopping');
+    const [result,setResult] = useState('');
+    const[inputValue,setInputValue] = useState('');
 
 
     return(
-         <MyContext.Provider value={{keyboardVisible,setKeyboardVisible}}>
+         <MyContext.Provider value={{keyboardVisible,setKeyboardVisible,shopping,setShopping,inputValue,setInputValue,result,setResult}}>
               {children}
          </MyContext.Provider>
     )
