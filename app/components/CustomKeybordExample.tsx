@@ -8,11 +8,14 @@ import {
   TextInput
 } from "react-native";
 import Icon from 'react-native-vector-icons/FontAwesome5'
+import { useMyContext } from "../context/AppProvider";
 
 const CustomKeyboardExample = () => {
-  const [keyboardVisible, setKeyboardVisible] = useState(true);
+
   const [inputValue, setInputValue] = useState("");
   const [result,setResult] = useState('') ;
+
+  const {keyboardVisible,setKeyboardVisible} =useMyContext()
 
   const handleKeyPress = (key:any) => {
     if (key === "BACKSPACE") {
