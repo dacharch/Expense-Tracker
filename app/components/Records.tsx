@@ -12,12 +12,9 @@ const Records = () => {
                  
              </View>
         </View>
-
         <View>
             
         </View>
-
-          
     </View>
   )
 }
