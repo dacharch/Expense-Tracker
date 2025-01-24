@@ -1,14 +1,12 @@
 import { Ionicons } from '@expo/vector-icons';
-import { useEffect } from 'react';
-import * as Calendar from 'expo-calendar';
 import React, { useState } from 'react'
 import { View, Text, StyleSheet,  TouchableOpacity,Platform } from 'react-native';
 import Records from '../components/Records';
+import { useMyContext } from '../context/AppProvider';
 
 const Index = () => {
-  const [expense, setExpenses] = useState(0);
-  const [income, setIncome] = useState(0);
-  const [balance, setBalance] = useState(0);
+  const {income,expense,balance}  = useMyContext();
+
 
 
   return (
