@@ -4,7 +4,7 @@ const Records = () => {
   return (
     <View style={styles.record_container}>
      
-        <View>
+        <View style={styles.record_date_container}>
              <View>
                   
              </View>
@@ -24,6 +24,12 @@ const styles = StyleSheet.create({
     width:100,
     borderBottomColor:'black',
     borderBottomWidth:1
+   },
+
+   record_date_container:{
+     display:'flex',
+     justifyContent:'space-between',
+
    }
 })
 
