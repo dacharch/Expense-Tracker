@@ -3,6 +3,7 @@ import { useEffect } from 'react';
 import * as Calendar from 'expo-calendar';
 import React, { useState } from 'react'
 import { View, Text, StyleSheet,  TouchableOpacity,Platform } from 'react-native';
+import Records from '../components/Records';
 
 const Index = () => {
   const [expense, setExpenses] = useState(0);
@@ -11,7 +12,9 @@ const Index = () => {
 
 
   return (
-    <View style={styles.container}>
+
+    <>
+       <View style={styles.container}>
       <View >
         <Text style={styles.text_container}>Money Records</Text>
       </View>
@@ -40,12 +43,12 @@ const Index = () => {
         </View>
 
       </View>
-
-      <View style={styles.records_container}>
-           
-  
-      </View>
     </View>
+    <View>
+       <Records/>
+    </View> 
+    </>
+   
   )
 }
 
