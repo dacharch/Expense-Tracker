@@ -41,6 +41,7 @@ const ExpenseAssets = () => {
       setColor6('black')
       setColor7('black')
       setColor8('black')
+      setKeyboardVisible(!keyboardVisible)
       
    }else if(value ==="mobile-phone"){
       setColor1('black')
@@ -51,6 +52,7 @@ const ExpenseAssets = () => {
       setColor6('black')
       setColor7('black')
       setColor8('black')
+      setKeyboardVisible(!keyboardVisible)      
    }else if(value === "tv"){
       setColor1('black')
       setColor2('black')
@@ -60,6 +62,7 @@ const ExpenseAssets = () => {
       setColor6('black')
       setColor7('black')
       setColor8('black')
+      setKeyboardVisible(!keyboardVisible)
    }else if(value ==='book'){
       setColor1('black')
       setColor2('black')
@@ -69,6 +72,7 @@ const ExpenseAssets = () => {
       setColor6('black')
       setColor7('black')
       setColor8('black')
+      setKeyboardVisible(!keyboardVisible)
    }else if(value === "female"){
       setColor1('black')
       setColor2('black')
@@ -78,6 +82,7 @@ const ExpenseAssets = () => {
       setColor6('yellow')
       setColor7('black')
       setColor8('black')
+      setKeyboardVisible(!keyboardVisible)
    }else if(value === "sports"){
       setColor1('black')
       setColor2('black')
@@ -87,6 +92,7 @@ const ExpenseAssets = () => {
       setColor6('black')
       setColor7('yellow')
       setColor8('black')
+      setKeyboardVisible(!keyboardVisible)
    }else if(value === "people"){
       setColor1('black')
       setColor2('black')
@@ -96,6 +102,7 @@ const ExpenseAssets = () => {
       setColor6('black')
       setColor7('black')
       setColor8('yellow')
+      setKeyboardVisible(!keyboardVisible)
 
    }
       

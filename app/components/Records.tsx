@@ -1,9 +1,12 @@
 import React, { useState } from 'react'
 import {View,Text,StyleSheet} from 'react-native'
 import Icon from 'react-native-vector-icons/FontAwesome' 
+import { useMyContext } from '../context/AppProvider'
 
 
 const Records = () => {
+  
+  const {income,expense} = useMyContext();
  
   const getDate = ()=>{
     const event = new Date() ;
@@ -11,6 +14,7 @@ const Records = () => {
  }
 
   return (
+
     <View style={styles.record_container}>
      
         <View style={styles.record_date_container}>
@@ -18,13 +22,13 @@ const Records = () => {
                 <Text>{getDate()}</Text>
              </View>
              <View style={styles.expense_income_container}>
-               <View>
+               <View >
                <Text>Expense</Text>
-               <Text></Text>
+               <Text>{expense}</Text>
                </View>
                <View>
                <Text>Income</Text>
-                  <Text></Text>
+                  <Text>{income}</Text>
                </View>
              </View>
         </View>
@@ -67,7 +71,8 @@ const styles = StyleSheet.create({
    },
    expense_income_container:{
     display:'flex',
-    flexDirection:'row'
+    flexDirection:'row',
+    gap:10,
    },
    icon_container:{
      paddingLeft:5,
@@ -92,6 +97,7 @@ const styles = StyleSheet.create({
       fontSize:20,
    },
   
+   
 
    icon:{
      borderRadius:'50%',

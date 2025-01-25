@@ -25,6 +25,7 @@ const CustomKeyboardExample = () => {
          setKeyboardVisible(!keyboardVisible)
          if(selected){
              setIncome(inputValue);
+             setIncome('');
          }else{
              setExpenses("-"+inputValue);
              setInputValue('');
