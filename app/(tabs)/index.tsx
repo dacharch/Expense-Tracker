@@ -3,9 +3,10 @@ import React, { useState } from 'react'
 import { View, Text, StyleSheet,  TouchableOpacity,Platform } from 'react-native';
 import Records from '../components/Records';
 import { useMyContext } from '../context/AppProvider';
+import RecordIcon from '../components/RecordIcon';
 
 const Index = () => {
-  const {income,expense,balance}  = useMyContext();
+  const {income,expense,balance,selectedIcon}  = useMyContext();
   return (
 
     <>
@@ -40,12 +41,21 @@ const Index = () => {
       </View>
     </View>
     <View>
-       <Records/>
+      {
+        selectedIcon ?(
+         <Records/>
+      
+       ): (
+          <RecordIcon/>
+        )
+      }
+       
     </View> 
     </>
    
   )
 }
+
 
 const styles = StyleSheet.create({
   container: {

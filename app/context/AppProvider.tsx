@@ -8,8 +8,8 @@ interface AppProviderProps{
 interface MyContextType{
    keyboardVisible:boolean;
    setKeyboardVisible: (value:boolean) =>void;
-   shopping:string,
-   setShopping:(value:string) =>void;
+   iconName:string,
+   setIconName:(value:string) =>void;
    result :any,
    setResult: (value:any)=>void ;
    inputValue:string,
@@ -21,7 +21,9 @@ interface MyContextType{
    balance:number,
    setBalance:(value:any)=>void,
    selected:boolean,
-   setSelected:(value:any)=>void,
+   setSelected:(value:boolean)=>void,
+   selectedIcon: boolean,
+   setSelectedIcon:(value:boolean)=>void
 
 
 }
@@ -29,25 +31,27 @@ const MyContext = createContext<MyContextType|undefined>(undefined) ;
 
 export const AppProvider:React.FC<AppProviderProps>= ({children}:any) =>{
     const [keyboardVisible,setKeyboardVisible] = useState(false) ;
-    const [shopping,setShopping] = useState('Shopping');
+    const [iconName,setIconName] = useState('');
     const [result,setResult] = useState('');
     const[inputValue,setInputValue] = useState('');
     const [expense, setExpenses] = useState(0);
     const [income, setIncome] = useState(0);
     const [balance, setBalance] = useState(0);
     const [selected,setSelected] =useState(false);
-
+    const [selectedIcon,setSelectedIcon] = useState(false) ; 
 
     return(
          <MyContext.Provider value={{
               keyboardVisible,setKeyboardVisible,
-              shopping,setShopping,
+              iconName,setIconName,
               inputValue,setInputValue,
               result,setResult,
               expense,setExpenses,
               income,setIncome,
               balance,setBalance,
               selected,setSelected,
+              selectedIcon,
+              setSelectedIcon
               }}>
               {children}
          </MyContext.Provider>

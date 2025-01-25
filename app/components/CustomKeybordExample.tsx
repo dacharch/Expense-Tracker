@@ -12,10 +12,22 @@ import { useMyContext } from "../context/AppProvider";
 
 const CustomKeyboardExample = () => {
   const {keyboardVisible,setKeyboardVisible,inputValue,setInputValue,result,setResult,
-      selected, income,setIncome,expense,setExpenses,balance,setBalance,
+      selected, setIncome,setExpenses,
   } =useMyContext()
 
   const output = [];
+
+  const check_click = ()=>{
+
+     if(selected){
+
+     }else{
+
+     }
+
+  }
+
+  
   const handleKeyPress = (key:any) => {
     if (key === "BACKSPACE") {
       setInputValue((prev: string | any[]) => prev.slice(0, -1)); 
@@ -24,14 +36,10 @@ const CustomKeyboardExample = () => {
     }else if(key ==="CHECK"){
          setKeyboardVisible(!keyboardVisible)
          if(selected){
-             setIncome(inputValue);
-             setIncome('');
+             check_click()
          }else{
-             setExpenses("-"+inputValue);
-             setInputValue('');
+             check_click()
          }
-         
-         
     }else {
       setInputValue((prev: any) => prev + key); 
     }

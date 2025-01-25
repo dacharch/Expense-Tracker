@@ -7,7 +7,7 @@ import { useMyContext } from '../context/AppProvider'
 import CustomKeyboardExample from './CustomKeybordExample'
 
 const ExpenseAssets = () => {
- const {keyboardVisible,setKeyboardVisible} = useMyContext();
+
  const [color1,setColor1] = useState<string>('black');
  const [color2,setColor2] = useState<string>('black');
  const [color3,setColor3] = useState<string>('black') ;
@@ -17,9 +17,7 @@ const ExpenseAssets = () => {
  const [color7,setColor7] = useState<string>('black');
  const [color8,setColor8] = useState<string>('black') ;
 
-
- 
-
+ const {setIconName,setSelectedIcon,keyboardVisible,setKeyboardVisible} = useMyContext();
   const handlePress = (value:string)=>{
    if(value === "shopping-bag"){
        setColor1('yellow')
@@ -31,6 +29,9 @@ const ExpenseAssets = () => {
        setColor7('black')
        setColor8('black')
        setKeyboardVisible(!keyboardVisible)
+       setIconName("shopping-bag");
+       setSelectedIcon(true)
+    
        
    }else if(value === "fast-food"){
       setColor1('black')
@@ -42,6 +43,8 @@ const ExpenseAssets = () => {
       setColor7('black')
       setColor8('black')
       setKeyboardVisible(!keyboardVisible)
+      setIconName('fast-food');
+    
       
    }else if(value ==="mobile-phone"){
       setColor1('black')
@@ -52,7 +55,9 @@ const ExpenseAssets = () => {
       setColor6('black')
       setColor7('black')
       setColor8('black')
-      setKeyboardVisible(!keyboardVisible)      
+      setKeyboardVisible(!keyboardVisible)   
+      setIconName('mobile-phone')   
+      
    }else if(value === "tv"){
       setColor1('black')
       setColor2('black')
@@ -62,7 +67,8 @@ const ExpenseAssets = () => {
       setColor6('black')
       setColor7('black')
       setColor8('black')
-      setKeyboardVisible(!keyboardVisible)
+      setKeyboardVisible(!keyboardVisible) 
+      setIconName('tv')
    }else if(value ==='book'){
       setColor1('black')
       setColor2('black')
@@ -73,6 +79,8 @@ const ExpenseAssets = () => {
       setColor7('black')
       setColor8('black')
       setKeyboardVisible(!keyboardVisible)
+      setIconName('book')
+      
    }else if(value === "female"){
       setColor1('black')
       setColor2('black')
@@ -83,6 +91,8 @@ const ExpenseAssets = () => {
       setColor7('black')
       setColor8('black')
       setKeyboardVisible(!keyboardVisible)
+      setIconName('female')
+    
    }else if(value === "sports"){
       setColor1('black')
       setColor2('black')
@@ -93,6 +103,8 @@ const ExpenseAssets = () => {
       setColor7('yellow')
       setColor8('black')
       setKeyboardVisible(!keyboardVisible)
+      setIconName('sports')
+   
    }else if(value === "people"){
       setColor1('black')
       setColor2('black')
@@ -103,6 +115,8 @@ const ExpenseAssets = () => {
       setColor7('black')
       setColor8('yellow')
       setKeyboardVisible(!keyboardVisible)
+      setIconName('people')
+      
 
    }
       

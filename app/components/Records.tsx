@@ -6,7 +6,8 @@ import { useMyContext } from '../context/AppProvider'
 
 const Records = () => {
   
-  const {income,expense} = useMyContext();
+  const {income,expense,iconName} = useMyContext();
+
  
   const getDate = ()=>{
     const event = new Date() ;
@@ -36,7 +37,7 @@ const Records = () => {
         <View style={styles.icon_container}>
           <View style={styles.icon_text_container}>
           <View style={styles.icon}>
-                <Icon name="shopping-bag" size={25}/>
+                <Icon name={iconName} size={25}/>
           </View>
             <View>
                 <Text style={styles.font_text}>Shopping</Text>
