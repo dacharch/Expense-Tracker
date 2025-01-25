@@ -6,9 +6,6 @@ import { useMyContext } from '../context/AppProvider';
 
 const Index = () => {
   const {income,expense,balance}  = useMyContext();
-
-
-
   return (
 
     <>

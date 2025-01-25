@@ -11,12 +11,11 @@ import Icon from 'react-native-vector-icons/FontAwesome5'
 import { useMyContext } from "../context/AppProvider";
 
 const CustomKeyboardExample = () => {
+  const {keyboardVisible,setKeyboardVisible,inputValue,setInputValue,result,setResult,
+      selected, income,setIncome,expense,setExpenses,balance,setBalance,
+  } =useMyContext()
 
- 
-
-
-  const {keyboardVisible,setKeyboardVisible,inputValue,setInputValue,result,setResult} =useMyContext()
-
+  const output = [];
   const handleKeyPress = (key:any) => {
     if (key === "BACKSPACE") {
       setInputValue((prev: string | any[]) => prev.slice(0, -1)); 
@@ -24,7 +23,13 @@ const CustomKeyboardExample = () => {
          setInputValue((prev: any)=>prev+key);
     }else if(key ==="CHECK"){
          setKeyboardVisible(!keyboardVisible)
-         setResult(inputValue);
+         if(selected){
+             setIncome(inputValue);
+         }else{
+             setExpenses("-"+inputValue);
+             setInputValue('');
+         }
+         
          
     }else {
       setInputValue((prev: any) => prev + key); 

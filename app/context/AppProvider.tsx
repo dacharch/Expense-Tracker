@@ -10,8 +10,8 @@ interface MyContextType{
    setKeyboardVisible: (value:boolean) =>void;
    shopping:string,
    setShopping:(value:string) =>void;
-   result :string,
-   setResult: (value:string)=>void ;
+   result :any,
+   setResult: (value:any)=>void ;
    inputValue:string,
    setInputValue:(value:any)=>void,
    expense:number,
@@ -20,6 +20,9 @@ interface MyContextType{
    setIncome:(value:any)=>void,
    balance:number,
    setBalance:(value:any)=>void,
+   selected:boolean,
+   setSelected:(value:any)=>void,
+
 
 }
 const MyContext = createContext<MyContextType|undefined>(undefined) ;
@@ -32,6 +35,7 @@ export const AppProvider:React.FC<AppProviderProps>= ({children}:any) =>{
     const [expense, setExpenses] = useState(0);
     const [income, setIncome] = useState(0);
     const [balance, setBalance] = useState(0);
+    const [selected,setSelected] =useState(false);
 
 
     return(
@@ -42,7 +46,9 @@ export const AppProvider:React.FC<AppProviderProps>= ({children}:any) =>{
               result,setResult,
               expense,setExpenses,
               income,setIncome,
-              balance,setBalance}}>
+              balance,setBalance,
+              selected,setSelected,
+              }}>
               {children}
          </MyContext.Provider>
     )

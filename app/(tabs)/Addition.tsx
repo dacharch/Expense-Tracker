@@ -1,14 +1,15 @@
 import React from 'react'
 import { Pressable, View } from 'react-native'
 import { StyleSheet,Text } from 'react-native'
-import { useState } from 'react'
+
 import IncomeAssets from '../components/IncomeAssets'
 import ExpenseAssets from '../components/ExpenseAssets'
+import { useMyContext } from '../context/AppProvider'
 
 
 
 const Addition = () => {
-  const [selected,setSelected] = useState(false) ;
+  const {selected,setSelected} =useMyContext();
   return (
 
     <>
@@ -18,7 +19,7 @@ const Addition = () => {
          </View>
          <View style={styles.box_container_center}>
          <View style={styles.box_container}>
-            <View  >
+            <View>
                <Pressable onPress={()=>setSelected(!selected)}>
                   <Text style={selected ? styles.selectedContainer: styles.unselectedContainer}>Income</Text>
                </Pressable>
@@ -35,6 +36,7 @@ const Addition = () => {
 
      <View>
         {selected ?<IncomeAssets/>:  <ExpenseAssets/> }
+
      </View>
     </>
   )
