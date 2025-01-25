@@ -17,7 +17,7 @@ const ExpenseAssets = () => {
  const [color7,setColor7] = useState<string>('black');
  const [color8,setColor8] = useState<string>('black') ;
 
- const {setIconName,setSelectedIcon,keyboardVisible,setKeyboardVisible} = useMyContext();
+ const {setIconName,setSelectedIcon,keyboardVisible,setKeyboardVisible,resultOutput} = useMyContext();
   const handlePress = (value:string)=>{
    if(value === "shopping-bag"){
        setColor1('yellow')
@@ -30,7 +30,7 @@ const ExpenseAssets = () => {
        setColor8('black')
        setKeyboardVisible(!keyboardVisible)
        setIconName("shopping-bag");
-       setSelectedIcon(true)
+       
     
        
    }else if(value === "fast-food"){
@@ -121,7 +121,9 @@ const ExpenseAssets = () => {
    }
       
   }
+   
 
+   
 
   return (
    <View style={styles.container}>

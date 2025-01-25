@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import {
   StyleSheet,
   Text,
@@ -11,19 +11,38 @@ import Icon from 'react-native-vector-icons/FontAwesome5'
 import { useMyContext } from "../context/AppProvider";
 
 const CustomKeyboardExample = () => {
-  const {keyboardVisible,setKeyboardVisible,inputValue,setInputValue,result,setResult,
-      selected, setIncome,setExpenses,
+  const [counter,setCounter] = useState(1)
+
+  const {keyboardVisible,setKeyboardVisible,inputValue,setInputValue,setResultOutput,
+      selected,iconName,
   } =useMyContext()
 
-  const output = [];
+ 
 
   const check_click = ()=>{
 
      if(selected){
-
+        setResultOutput((prev:any)=>[
+          ...prev,{
+             id:counter,
+             category:"Income",
+             income:inputValue,
+             iconName:iconName
+          }
+        ])   
+       
+        setCounter(counter+1)
+            
      }else{
-
+        setResultOutput((prev: any)=>[...prev,{
+          id:counter,
+          category:"Expense",
+          expense:"-"+inputValue,
+          iconName:iconName,
+        }])
+        setCounter(counter+1);
      }
+     
 
   }
 

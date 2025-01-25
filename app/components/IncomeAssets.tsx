@@ -27,7 +27,6 @@ const IncomeAssets = () => {
      setColor3('black')
      setColor4('black')
      setIconName('business-time')
-    
      setKeyboardVisible(!keyboardVisible)
 
    }else if(value  === "gift"){

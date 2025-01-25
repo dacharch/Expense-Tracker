@@ -10,8 +10,8 @@ interface MyContextType{
    setKeyboardVisible: (value:boolean) =>void;
    iconName:string,
    setIconName:(value:string) =>void;
-   result :any,
-   setResult: (value:any)=>void ;
+   resultOutput :any,
+   setResultOutput: (value:any)=>void ;
    inputValue:string,
    setInputValue:(value:any)=>void,
    expense:number,
@@ -32,20 +32,21 @@ const MyContext = createContext<MyContextType|undefined>(undefined) ;
 export const AppProvider:React.FC<AppProviderProps>= ({children}:any) =>{
     const [keyboardVisible,setKeyboardVisible] = useState(false) ;
     const [iconName,setIconName] = useState('');
-    const [result,setResult] = useState('');
+    const [resultOutput,setResultOutput] = useState([]);
     const[inputValue,setInputValue] = useState('');
     const [expense, setExpenses] = useState(0);
     const [income, setIncome] = useState(0);
     const [balance, setBalance] = useState(0);
     const [selected,setSelected] =useState(false);
     const [selectedIcon,setSelectedIcon] = useState(false) ; 
+    
 
     return(
          <MyContext.Provider value={{
               keyboardVisible,setKeyboardVisible,
               iconName,setIconName,
               inputValue,setInputValue,
-              result,setResult,
+              resultOutput,setResultOutput,
               expense,setExpenses,
               income,setIncome,
               balance,setBalance,

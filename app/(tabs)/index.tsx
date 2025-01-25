@@ -6,9 +6,10 @@ import { useMyContext } from '../context/AppProvider';
 import RecordIcon from '../components/RecordIcon';
 
 const Index = () => {
-  const {income,expense,balance,selectedIcon}  = useMyContext();
-  return (
+  const {income,setIncome,expense,setExpenses,balance,setBalance,selectedIcon}  = useMyContext();
 
+  
+  return (
     <>
        <View style={styles.container}>
       <View >
@@ -34,7 +35,7 @@ const Index = () => {
         </View>
 
         <View style={styles.box_container}>
-          <Text>Blance</Text>
+          <Text>Balance</Text>
           <Text>{balance}</Text>
         </View>
 
