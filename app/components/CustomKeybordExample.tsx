@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 import {
   StyleSheet,
   Text,
@@ -14,7 +14,7 @@ const CustomKeyboardExample = () => {
   const [counter,setCounter] = useState(1)
 
   const {keyboardVisible,setKeyboardVisible,inputValue,setInputValue,setResultOutput,
-      selected,iconName,
+      selected,iconName,categoryName
   } =useMyContext()
 
  
@@ -26,20 +26,23 @@ const CustomKeyboardExample = () => {
           ...prev,{
              id:counter,
              category:"Income",
-             income:inputValue,
+             name:categoryName,
+             currentValue:inputValue,
              iconName:iconName
           }
         ])   
-       
+        setInputValue('')
         setCounter(counter+1)
             
      }else{
         setResultOutput((prev: any)=>[...prev,{
           id:counter,
           category:"Expense",
-          expense:"-"+inputValue,
+          name:categoryName,
+          currentValue:"-"+inputValue,
           iconName:iconName,
         }])
+        setInputValue('')
         setCounter(counter+1);
      }
      

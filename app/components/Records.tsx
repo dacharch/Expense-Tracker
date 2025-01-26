@@ -1,18 +1,35 @@
 import React, { useState } from 'react'
 import {View,Text,StyleSheet} from 'react-native'
 import Icon from 'react-native-vector-icons/FontAwesome' 
+import Icon2 from 'react-native-vector-icons/Ionicons'
+import Icon3 from  'react-native-vector-icons/MaterialIcons'
 import { useMyContext } from '../context/AppProvider'
 
+interface Item{
+   id:number,
+   category:string,
+   name:string,
+   currentValue:number,
+   iconName:string
 
-const Records = () => {
+}
+
+interface ItemProps {
+    item:Item
+}
+const Records:React.FC<ItemProps> = ({item}) => {
   
   const {income,expense,iconName} = useMyContext();
+  
 
- 
   const getDate = ()=>{
     const event = new Date() ;
     return event.toDateString();
  }
+
+ console.log(item.category)
+
+
 
   return (
 
@@ -37,15 +54,23 @@ const Records = () => {
         <View style={styles.icon_container}>
           <View style={styles.icon_text_container}>
           <View style={styles.icon}>
-                <Icon name={iconName} size={25}/>
+            {
+              item.iconName == "fast-food"? (
+                 <Icon2 name={item.iconName} size={25}/>
+              ):
+              (
+                <Icon name={item.iconName} size={25}/>
+              )
+            }
+                
           </View>
             <View>
-                <Text style={styles.font_text}>Shopping</Text>
+                <Text style={styles.font_text}>{item.name}</Text>
             </View>
             
           </View>
           <View>
-              <Text>500</Text>
+              <Text>{item.currentValue}</Text>
           </View>
           
         </View>

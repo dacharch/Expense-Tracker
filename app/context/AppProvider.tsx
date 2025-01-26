@@ -22,8 +22,11 @@ interface MyContextType{
    setBalance:(value:any)=>void,
    selected:boolean,
    setSelected:(value:boolean)=>void,
-   selectedIcon: boolean,
-   setSelectedIcon:(value:boolean)=>void
+   categoryName:string,
+   setCategoryName:(value:string) =>void ,
+   selectedIcon:boolean,
+   setSelectedIcon:( value:boolean) =>void,
+  
 
 
 }
@@ -38,7 +41,9 @@ export const AppProvider:React.FC<AppProviderProps>= ({children}:any) =>{
     const [income, setIncome] = useState(0);
     const [balance, setBalance] = useState(0);
     const [selected,setSelected] =useState(false);
-    const [selectedIcon,setSelectedIcon] = useState(false) ; 
+    const [categoryName,setCategoryName] =useState('') ;
+    const [selectedIcon,setSelectedIcon] = useState(false) ;
+ 
     
 
     return(
@@ -51,8 +56,9 @@ export const AppProvider:React.FC<AppProviderProps>= ({children}:any) =>{
               income,setIncome,
               balance,setBalance,
               selected,setSelected,
-              selectedIcon,
-              setSelectedIcon
+              categoryName,setCategoryName,
+              selectedIcon,setSelectedIcon
+          
               }}>
               {children}
          </MyContext.Provider>

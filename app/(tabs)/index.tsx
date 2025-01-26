@@ -4,11 +4,14 @@ import { View, Text, StyleSheet,  TouchableOpacity,Platform } from 'react-native
 import Records from '../components/Records';
 import { useMyContext } from '../context/AppProvider';
 import RecordIcon from '../components/RecordIcon';
+import { ScrollView } from 'react-native';
 
 const Index = () => {
-  const {income,setIncome,expense,setExpenses,balance,setBalance,selectedIcon}  = useMyContext();
+  const {income,setIncome,expense,setExpenses,balance,setBalance,selectedIcon,resultOutput}  = useMyContext();
+  console.log(resultOutput)
 
-  
+
+
   return (
     <>
        <View style={styles.container}>
@@ -43,11 +46,15 @@ const Index = () => {
     </View>
     <View>
       {
-        selectedIcon ?(
-         <Records/>
-      
-       ): (
-          <RecordIcon/>
+        selectedIcon ?
+          resultOutput.map((item:any)=>(
+            <ScrollView>
+                 <Records key={item.id} item={item} />
+            </ScrollView>
+              
+          ))
+          : (
+          <RecordIcon />
         )
       }
        

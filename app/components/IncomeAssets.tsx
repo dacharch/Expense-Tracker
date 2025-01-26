@@ -6,7 +6,7 @@ import { useMyContext } from '../context/AppProvider';
 import CustomKeyboardExample from './CustomKeybordExample';
 
 const IncomeAssets = () => {
-   const {keyboardVisible,setKeyboardVisible,setIconName,setSelectedIcon} = useMyContext();
+   const {keyboardVisible,setKeyboardVisible,setIconName,setCategoryName,setSelectedIcon} = useMyContext();
    const [color1,setColor1] = useState<string>('black');
    const [color2,setColor2] = useState<string>('black');
    const [color3,setColor3] = useState<string>('black') ;
@@ -21,6 +21,9 @@ const IncomeAssets = () => {
        setColor4('black')
        setIconName('wallet')
        setKeyboardVisible(!keyboardVisible)
+       setCategoryName('Wallet')
+       setSelectedIcon(true)
+       
    }else if(value === "business-time" ){
      setColor1('black')
      setColor2('yellow')
@@ -28,6 +31,8 @@ const IncomeAssets = () => {
      setColor4('black')
      setIconName('business-time')
      setKeyboardVisible(!keyboardVisible)
+     setCategoryName('Business')
+     setSelectedIcon(true)
 
    }else if(value  === "gift"){
        setColor1('black')
@@ -35,17 +40,18 @@ const IncomeAssets = () => {
        setColor3('yellow')
        setColor4('black')
        setIconName('gift')
-      
        setKeyboardVisible(!keyboardVisible)
-
+       setCategoryName('Gift')
+       setSelectedIcon(true)
    }else if(value === "dollar"){
        setColor1('black')
        setColor2('black')
        setColor3('black')
        setColor4('yellow')
        setIconName('dollar') 
-      
        setKeyboardVisible(!keyboardVisible)
+       setCategoryName('Other')
+       setSelectedIcon(true)
 
    }
   }
