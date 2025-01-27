@@ -1,66 +1,103 @@
 import { Ionicons } from '@expo/vector-icons';
 import React, { useState } from 'react'
-import { View, Text, StyleSheet,  TouchableOpacity,Platform } from 'react-native';
+import { View, Text, StyleSheet, TouchableOpacity, Platform } from 'react-native';
 import Records from '../components/Records';
 import { useMyContext } from '../context/AppProvider';
 import RecordIcon from '../components/RecordIcon';
 import { ScrollView } from 'react-native';
 
 const Index = () => {
-  const {income,setIncome,expense,setExpenses,balance,setBalance,selectedIcon,resultOutput}  = useMyContext();
+
+  const { income, setIncome, expense, setExpenses, balance, setBalance, selectedIcon, resultOutput } = useMyContext();
   console.log(resultOutput)
 
-
+  const getDate = () => {
+    const event = new Date();
+    return event.toDateString();
+  }
 
   return (
     <>
-       <View style={styles.container}>
-      <View >
-        <Text style={styles.text_container}>Money Records</Text>
-      </View>
+      <View style={styles.container}>
+        <View >
+          <Text style={styles.text_container}>Money Records</Text>
+        </View>
 
-      <View style={styles.sub_container}>
+        <View style={styles.sub_container}>
 
-         <View>
+          <View>
             <TouchableOpacity >
-             <Ionicons name="calendar-number-outline" size={30}/>
+              <Ionicons name="calendar-number-outline" size={30} />
             </TouchableOpacity>
-         </View>
+          </View>
 
-        <View style={styles.box_container}>
-          <Text>Expenses</Text>
-          <Text>{expense}</Text>
+          <View style={styles.box_container}>
+            <Text>Expenses</Text>
+            <Text>{expense}</Text>
+          </View>
+
+          <View style={styles.box_container}>
+            <Text>Income</Text>
+            <Text>{income}</Text>
+          </View>
+
+          <View style={styles.box_container}>
+            <Text>Balance</Text>
+            <Text>{balance}</Text>
+          </View>
         </View>
 
-        <View style={styles.box_container}>
-          <Text>Income</Text>
-          <Text>{income}</Text>
-        </View>
+        {
+           selectedIcon?(
+            <View style={styles.record_date_container}>
+            <View>
+              <Text>{getDate()}</Text>
+            </View>
+            <View style={styles.expense_income_container}>
+              <View style={styles.income_expense}>
+                <Text>Expense</Text>
+                <Text>{expense}</Text>
+              </View>
+              <View style={styles.income_expense}>
+                <Text>Income</Text>
+                <Text>{income}</Text>
+              </View>
+            </View>
+          </View>
 
-        <View style={styles.box_container}>
-          <Text>Balance</Text>
-          <Text>{balance}</Text>
-        </View>
+           ):(
+            <>
+            </>
+           )
+
+        }
+       
+
 
       </View>
-    </View>
-    <View>
-      {
-        selectedIcon ?
-          resultOutput.map((item:any)=>(
-            <ScrollView>
-                 <Records key={item.id} item={item} />
-            </ScrollView>
-              
-          ))
-          : (
-          <RecordIcon />
-        )
-      }
-       
-    </View> 
+      <View>
+        <ScrollView
+
+        >
+          {
+            selectedIcon ?
+              resultOutput.map((item: any) => (
+
+                <Records key={item.id} item={item} />
+
+
+              ))
+              : (
+                <RecordIcon />
+              )
+          }
+
+        </ScrollView>
+
+
+      </View>
     </>
-   
+
   )
 }
 
@@ -71,10 +108,29 @@ const styles = StyleSheet.create({
     textAlign: 'center',
     color: 'black',
   },
+  income_expense:{
+   display:'flex',
+   flexDirection:'row',
+   gap:5,
+  },
   text_container: {
     textAlign: 'center',
     fontSize: 20,
     fontWeight: 'bold'
+  },
+  record_date_container: {
+    backgroundColor: '#fff',
+    padding: 5,
+    display: 'flex',
+    flexDirection: 'row',
+    borderColor: 'black',
+    borderBottomWidth: 1,
+    justifyContent: 'space-between',
+  },
+  expense_income_container: {
+    display: 'flex',
+    flexDirection: 'row',
+    gap: 10,
   },
   sub_container: {
     flexDirection: 'row',
@@ -84,9 +140,9 @@ const styles = StyleSheet.create({
   box_container: {
     borderColor: 'black'
   },
-  records_container:{
-     flexDirection:'column'
-    
+  records_container: {
+    flexDirection: 'column'
+
   }
 })
 

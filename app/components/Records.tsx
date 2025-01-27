@@ -35,21 +35,7 @@ const Records:React.FC<ItemProps> = ({item}) => {
 
     <View style={styles.record_container}>
      
-        <View style={styles.record_date_container}>
-             <View>
-                <Text>{getDate()}</Text>
-             </View>
-             <View style={styles.expense_income_container}>
-               <View >
-               <Text>Expense</Text>
-               <Text>{expense}</Text>
-               </View>
-               <View>
-               <Text>Income</Text>
-                  <Text>{income}</Text>
-               </View>
-             </View>
-        </View>
+        
 
         <View style={styles.icon_container}>
           <View style={styles.icon_text_container}>
@@ -83,7 +69,7 @@ const styles = StyleSheet.create({
     paddingLeft:5,
     paddingRight:5,
     marginTop:5,
-    height:100,
+    height:75,
     position:'relative',
     borderBottomWidth:1,
    },
