@@ -44,16 +44,10 @@ export const AppProvider:React.FC<AppProviderProps>= ({children}:any) =>{
     const [categoryName,setCategoryName] =useState('') ;
     const [selectedIcon,setSelectedIcon] = useState(false) ;
  
-   
-  
-
-
-
-
-    
 
     return(
-         <MyContext.Provider value={{
+
+     <MyContext.Provider value={{
               keyboardVisible,setKeyboardVisible,
               iconName,setIconName,
               inputValue,setInputValue,
@@ -70,7 +64,6 @@ export const AppProvider:React.FC<AppProviderProps>= ({children}:any) =>{
          </MyContext.Provider>
     )
 }
-// Custom Hook that will use the AppProviderProps
 
 export const useMyContext = () =>{
      const context = useContext(MyContext);

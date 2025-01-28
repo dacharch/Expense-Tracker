@@ -28,8 +28,6 @@ const Index = () => {
     setBalance(income+expense)
     setIncome(income);
     setExpenses(expense);
-
-
   }, [resultOutput]);
 
   return (
@@ -41,11 +39,7 @@ const Index = () => {
 
         <View style={styles.sub_container}>
 
-          <View>
-            <TouchableOpacity >
-              <Ionicons name="calendar-number-outline" size={30} />
-            </TouchableOpacity>
-          </View>
+         
 
           <View style={styles.box_container}>
             <Text>Expenses</Text>
