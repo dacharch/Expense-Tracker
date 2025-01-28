@@ -39,8 +39,6 @@ const Index = () => {
 
         <View style={styles.sub_container}>
 
-         
-
           <View style={styles.box_container}>
             <Text>Expenses</Text>
             <Text>{expense}</Text>

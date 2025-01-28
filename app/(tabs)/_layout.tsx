@@ -30,9 +30,9 @@ export default function TabLayout() {
         }}
       />
       <Tabs.Screen
-        name="Charts"
+        name="Analysis"
         options={{
-          title: 'Charts',
+          title: 'Analysis',
           tabBarIcon: ({ color, focused }) => (
             <Ionicons name={focused ? 'analytics-sharp' : 'analytics-sharp'} color={color} size={30}/>
           ),
