@@ -11,7 +11,6 @@ import Icon from 'react-native-vector-icons/FontAwesome5'
 import { useMyContext } from "../context/AppProvider";
 
 const CustomKeyboardExample = () => {
-  const [counter,setCounter] = useState(1)
 
   const {keyboardVisible,setKeyboardVisible,inputValue,setInputValue,setResultOutput,
       selected,iconName,categoryName
@@ -24,26 +23,26 @@ const CustomKeyboardExample = () => {
      if(selected){
         setResultOutput((prev:any)=>[
           ...prev,{
-             id:counter,
+             id:Date.now(),
              category:"Income",
              name:categoryName,
-             currentValue:inputValue,
+             currentValue:Math.abs(Number(inputValue)),
              iconName:iconName
           }
         ])   
         setInputValue('')
-        setCounter(counter+1)
+     
             
      }else{
         setResultOutput((prev: any)=>[...prev,{
-          id:counter,
+          id:Date.now(),
           category:"Expense",
           name:categoryName,
-          currentValue:"-"+inputValue,
+          currentValue:Math.abs(Number(inputValue))* -1,
           iconName:iconName,
         }])
         setInputValue('')
-        setCounter(counter+1);
+       
      }
      
 

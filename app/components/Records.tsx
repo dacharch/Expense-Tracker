@@ -22,13 +22,6 @@ const Records:React.FC<ItemProps> = ({item}) => {
   const {income,expense,iconName} = useMyContext();
   
 
-  const getDate = ()=>{
-    const event = new Date() ;
-    return event.toDateString();
- }
-
- console.log(item.category)
-
 
 
   return (

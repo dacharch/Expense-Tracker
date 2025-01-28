@@ -1,4 +1,4 @@
-import React, { createContext,useState,ReactNode,useContext } from 'react'
+import React, { createContext,useState,ReactNode,useContext, useEffect } from 'react'
 
 
 
@@ -15,7 +15,7 @@ interface MyContextType{
    inputValue:string,
    setInputValue:(value:any)=>void,
    expense:number,
-   setExpenses:(value:any)=>void,
+   setExpenses:(value:number)=>void,
    income:number,
    setIncome:(value:any)=>void,
    balance:number,
@@ -27,9 +27,9 @@ interface MyContextType{
    selectedIcon:boolean,
    setSelectedIcon:( value:boolean) =>void,
   
-
-
 }
+
+
 const MyContext = createContext<MyContextType|undefined>(undefined) ;
 
 export const AppProvider:React.FC<AppProviderProps>= ({children}:any) =>{
@@ -44,6 +44,12 @@ export const AppProvider:React.FC<AppProviderProps>= ({children}:any) =>{
     const [categoryName,setCategoryName] =useState('') ;
     const [selectedIcon,setSelectedIcon] = useState(false) ;
  
+   
+  
+
+
+
+
     
 
     return(

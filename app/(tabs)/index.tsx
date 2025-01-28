@@ -1,5 +1,5 @@
 import { Ionicons } from '@expo/vector-icons';
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import { View, Text, StyleSheet, TouchableOpacity, Platform } from 'react-native';
 import Records from '../components/Records';
 import { useMyContext } from '../context/AppProvider';
@@ -15,6 +15,22 @@ const Index = () => {
     const event = new Date();
     return event.toDateString();
   }
+
+  useEffect(() => {
+    const income = resultOutput.reduce((acc:any, record:any) => {
+      return record.currentValue > 0 ? acc + record.currentValue : acc;
+    }, 0);
+
+    const expense = resultOutput.reduce((acc:any, record:any) => {
+      return record.currentValue < 0 ? acc + record.currentValue : acc;
+    }, 0);
+
+    setBalance(income+expense)
+    setIncome(income);
+    setExpenses(expense);
+
+
+  }, [resultOutput]);
 
   return (
     <>
@@ -82,10 +98,7 @@ const Index = () => {
           {
             selectedIcon ?
               resultOutput.map((item: any) => (
-
                 <Records key={item.id} item={item} />
-
-
               ))
               : (
                 <RecordIcon />
@@ -121,6 +134,8 @@ const styles = StyleSheet.create({
   record_date_container: {
     backgroundColor: '#fff',
     padding: 5,
+
+
     display: 'flex',
     flexDirection: 'row',
     borderColor: 'black',
