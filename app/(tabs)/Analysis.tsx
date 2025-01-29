@@ -7,20 +7,32 @@ import RecordIcon from '../components/RecordIcon';
 
 
 const Analysis = () => {
-  const {selectedIcon,resultOutput} = useMyContext();
-  const [totalPercentage,setPercentage] =useState();
+  const {selectedIcon,resultOutput,income} = useMyContext();
+  
 
 
-  const updtedObject = resultOutput.map((obj: { [x: string]: any; currentValue: any; }) => {
+  const updatedObject = resultOutput.map((obj: { [x: string]: any; currentValue: any; }) => {
     const { currentValue, ...rest } = obj;
 
     return {
       ...rest,
-      value: currentValue,
+      value: Math.abs(currentValue),
       
     };
   });
-  
+
+  const newUpdate =updatedObject.map((obj: { [x: string]: any; currentValue: any; }) => {
+     
+      obj.text =(obj.value*100/income).toFixed(2);
+      return obj ;
+
+    
+  });
+  console.log(newUpdate);
+
+ 
+
+
 
  
   return (
@@ -34,11 +46,17 @@ const Analysis = () => {
               <>
                <View style={style.chart_container}>
                    <PieChart 
-                      data={updtedObject}
+                      showText
+                      textSize={20}
+                      
+                      data={newUpdate}
                       centerLabelComponent={()=>{
-                         return <Text style={{fontSize:30}}>{totalPercentage}</Text>
+                         return <Text style={{fontSize:30}}>{income}</Text>
                       }}
                     />
+               </View>
+               <View  style={style.bottom_container}>
+                        <Text>Hellow</Text>
                </View>
                
               </>
@@ -48,17 +66,11 @@ const Analysis = () => {
          }
           
      </View>
-
-
-
-
-  
   )
 }
 
 
 const style = StyleSheet.create({
-   
    container: {
      backgroundColor: '#B58B00', 
      height:100,
@@ -68,7 +80,11 @@ const style = StyleSheet.create({
    main_container:{
      flex:1,
    },
-   
+
+   bottom_container:{
+        marginTop:10,
+   },
+
    chart_container:{
        display:'flex',
        flexDirection:'column',
@@ -82,7 +98,6 @@ const style = StyleSheet.create({
     fontSize:20,
     fontWeight:'bold'
    }
-
 })
 
 
