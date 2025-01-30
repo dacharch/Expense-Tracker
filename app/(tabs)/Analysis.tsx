@@ -3,13 +3,14 @@ import { View,Text,StyleSheet } from 'react-native'
 import { PieChart } from "react-native-gifted-charts";
 import { useMyContext } from '../context/AppProvider';
 import RecordIcon from '../components/RecordIcon';
+import Records from '../components/Records';
+import PercentageRecord from '../components/PercentageRecord';
 
 
 
 const Analysis = () => {
   const {selectedIcon,resultOutput,income} = useMyContext();
   
-
 
   const updatedObject = resultOutput.map((obj: { [x: string]: any; currentValue: any; }) => {
     const { currentValue, ...rest } = obj;
@@ -29,11 +30,6 @@ const Analysis = () => {
     
   });
   console.log(newUpdate);
-
- 
-
-
-
  
   return (
      <View  style={style.main_container}>
@@ -56,7 +52,7 @@ const Analysis = () => {
                     />
                </View>
                <View  style={style.bottom_container}>
-                        <Text>Hellow</Text>
+                        <PercentageRecord/>
                </View>
                
               </>
