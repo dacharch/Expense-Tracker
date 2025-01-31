@@ -9,7 +9,7 @@ import { ScrollView } from 'react-native';
 const Index = () => {
 
   const { income, setIncome, expense, setExpenses, balance, setBalance, selectedIcon, resultOutput } = useMyContext();
-  console.log(resultOutput)
+ 
 
   const getDate = () => {
     const event = new Date();

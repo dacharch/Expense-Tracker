@@ -5,7 +5,7 @@ import { useMyContext } from '../context/AppProvider';
 import RecordIcon from '../components/RecordIcon';
 import Records from '../components/Records';
 import PercentageRecord from '../components/PercentageRecord';
-
+import { ScrollView } from 'react-native';
 
 
 const Analysis = () => {
@@ -22,21 +22,18 @@ const Analysis = () => {
     };
   });
 
-  const newUpdate =updatedObject.map((obj: { [x: string]: any; currentValue: any; }) => {
+  const newUpdate = updatedObject.map((obj: { [x: string]: any; currentValue: any; }) => {
      
-      obj.text =(obj.value*100/income).toFixed(2);
+      obj.percentage =(obj.value*100/income).toFixed(2);
       return obj ;
 
     
   });
-  console.log(newUpdate);
- 
   return (
      <View  style={style.main_container}>
          <View style={style.container}>
                <Text style={style.text_container}>Charts</Text>
          </View>
-
          {
           selectedIcon? (
               <>
@@ -44,17 +41,24 @@ const Analysis = () => {
                    <PieChart 
                       showText
                       textSize={20}
-                      
                       data={newUpdate}
                       centerLabelComponent={()=>{
                          return <Text style={{fontSize:30}}>{income}</Text>
                       }}
                     />
                </View>
-               <View  style={style.bottom_container}>
-                        <PercentageRecord/>
+               <ScrollView>
+               <View  style={style.bottom_container}>             
+                        {
+                          newUpdate.map((item:any)=>(
+                              <PercentageRecord key={item.id} item={item}/>
+                          ))
+                        }
+                 
                </View>
-               
+               </ScrollView>
+
+              
               </>
           ):(
              <RecordIcon/>

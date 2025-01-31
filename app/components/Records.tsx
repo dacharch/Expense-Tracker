@@ -2,7 +2,8 @@ import React, { useState } from 'react'
 import {View,Text,StyleSheet} from 'react-native'
 import Icon from 'react-native-vector-icons/FontAwesome' 
 import Icon2 from 'react-native-vector-icons/Ionicons'
-import Icon3 from  'react-native-vector-icons/MaterialIcons'
+import Icon3 from 'react-native-vector-icons/FontAwesome6'
+import Icon4 from 'react-native-vector-icons/MaterialIcons'
 import { useMyContext } from '../context/AppProvider'
 
 interface Item{
@@ -11,37 +12,43 @@ interface Item{
    name:string,
    currentValue:number,
    iconName:string
-
 }
 
 interface ItemProps {
     item:Item
 }
-const Records:React.FC<ItemProps> = ({item}) => {
-  
+const Records:React.FC<ItemProps> = ({item}) => {  
   const {income,expense,iconName} = useMyContext();
-  
-
-
 
   return (
 
     <View style={styles.record_container}>
-     
-        
-
         <View style={styles.icon_container}>
           <View style={styles.icon_text_container}>
           <View style={styles.icon}>
-            {
-              item.iconName == "fast-food"? (
-                 <Icon2 name={item.iconName} size={25}/>
+             {
+              item.iconName == "fast-food"?(
+                  <Icon2  name={item.iconName} size={25}/>
+              ):item.iconName =="sports"?(
+                  <Icon4 name={item.iconName} size={25} />
+              ):item.iconName == "people"?(
+                 <Icon2 name={item.iconName} size={25} />
               ):
-              (
-                <Icon name={item.iconName} size={25}/>
+              item.iconName == "wallet"?(
+                 <Icon3 name={item.iconName} size={25}  />
+              ):
+              
+                item.iconName == "business-time"?(
+                   <Icon3 name={item.iconName} size={25} />
+                ):item.iconName == "gift"?(
+                   <Icon3 name={item.iconName} size={25} />
+                ):item.iconName == "dollar"?(
+                   <Icon3 name={item.iconName} size={25} />
+                ):(
+                <Icon name={item.iconName} size={25} />
               )
-            }
-                
+
+             }   
           </View>
             <View>
                 <Text style={styles.font_text}>{item.name}</Text>
@@ -101,14 +108,10 @@ const styles = StyleSheet.create({
       fontWeight:'bold',
       fontSize:20,
    },
-  
-   
-
    icon:{
      borderRadius:'50%',
      backgroundColor:'gray',
      padding:10
-
    }
 })
 
