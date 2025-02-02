@@ -54,10 +54,11 @@ const CustomKeyboardExample = () => {
       if(inputValue !==""){
         setKeyboardVisible(!keyboardVisible)
         submit_Data();
-      }
-         
-        
-    } else {
+      } 
+    }if(key ==="BACK"){
+       setKeyboardVisible(!keyboardVisible);
+    }
+     else {
       setInputValue((prev: any) => prev + key);
     }
   };
@@ -78,7 +79,7 @@ const CustomKeyboardExample = () => {
               ["4", "5", "6"],
               ["7", "8", "9"],
               [".", "0", "BACKSPACE"],
-              ["CHECK"],
+              ["CHECK","BACK"],
             ].map((row, rowIndex) => (
               <View key={rowIndex} style={styles.row}>
                 {row.map((key) => (
