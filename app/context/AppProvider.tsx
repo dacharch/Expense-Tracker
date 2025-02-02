@@ -1,7 +1,4 @@
 import React, { createContext,useState,ReactNode,useContext, useEffect } from 'react'
-
-
-
 interface AppProviderProps{
       children:ReactNode;
 }
@@ -25,11 +22,8 @@ interface MyContextType{
    categoryName:string,
    setCategoryName:(value:string) =>void ,
    selectedIcon:boolean,
-   setSelectedIcon:( value:boolean) =>void,
-  
+   setSelectedIcon:( value:boolean) =>void, 
 }
-
-
 const MyContext = createContext<MyContextType|undefined>(undefined) ;
 
 export const AppProvider:React.FC<AppProviderProps>= ({children}:any) =>{
