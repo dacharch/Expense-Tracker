@@ -67,7 +67,7 @@ const styles = StyleSheet.create({
     fontSize: 20,
     fontWeight: 'bold',
     width: 150,
-    backgroundColor: '#E74C3C',  // Red for selected (vibrant and eye-catching)
+    backgroundColor: '#3B5998',  // Red for selected (vibrant and eye-catching)
     color: 'white',
     paddingVertical: 12,
     paddingHorizontal: 25,
