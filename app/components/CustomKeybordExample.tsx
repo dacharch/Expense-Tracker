@@ -15,7 +15,9 @@ const CustomKeyboardExample = () => {
     categoryName
   } = useMyContext();
 
-  const check_click = () => {
+  const submit_Data = () => {
+
+
     if (selected) {
       setResultOutput((prev: any) => [
         ...prev,
@@ -49,8 +51,12 @@ const CustomKeyboardExample = () => {
     } else if (key === ".") {
       setInputValue((prev: any) => prev + key);
     } else if (key === "CHECK") {
-      setKeyboardVisible(!keyboardVisible);
-      check_click();
+      if(inputValue !==""){
+        setKeyboardVisible(!keyboardVisible)
+        submit_Data();
+      }
+         
+        
     } else {
       setInputValue((prev: any) => prev + key);
     }

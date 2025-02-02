@@ -15,7 +15,7 @@ const IncomeAssets = () => {
   const handlePress = (value:string) =>{
     
    if(value === "wallet"){
-       setColor1('yellow') 
+       setColor1('#3B5998') 
        setColor2('black')
        setColor3('black')
        setColor4('black')
@@ -26,7 +26,7 @@ const IncomeAssets = () => {
        
    }else if(value === "business-time" ){
      setColor1('black')
-     setColor2('yellow')
+     setColor2('#3B5998')
      setColor3('black')
      setColor4('black')
      setIconName('business-time')
@@ -37,7 +37,7 @@ const IncomeAssets = () => {
    }else if(value  === "gift"){
        setColor1('black')
        setColor2('black')
-       setColor3('yellow')
+       setColor3('#3B5998')
        setColor4('black')
        setIconName('gift')
        setKeyboardVisible(!keyboardVisible)
@@ -47,7 +47,7 @@ const IncomeAssets = () => {
        setColor1('black')
        setColor2('black')
        setColor3('black')
-       setColor4('yellow')
+       setColor4('#3B5998')
        setIconName('dollar') 
        setKeyboardVisible(!keyboardVisible)
        setCategoryName('Other')

@@ -1,4 +1,6 @@
 import React, { createContext,useState,ReactNode,useContext, useEffect } from 'react'
+import AsyncStorage from "@react-native-async-storage/async-storage";
+
 interface AppProviderProps{
       children:ReactNode;
 }
@@ -37,7 +39,60 @@ export const AppProvider:React.FC<AppProviderProps>= ({children}:any) =>{
     const [selected,setSelected] =useState(false);
     const [categoryName,setCategoryName] =useState('') ;
     const [selectedIcon,setSelectedIcon] = useState(false) ;
- 
+   
+
+    const getTodayDate = () => {
+      return new Date().toISOString().split('T')[0]; // Example: "2025-02-02"
+    };
+    
+
+    const loadStoredData = async () => {
+      try {
+        const storedData = await AsyncStorage.getItem('dataForToday');
+        if (storedData) {
+          const parsedData = JSON.parse(storedData);
+          if (parsedData.date === getTodayDate()) {
+            // Only load the data if it matches today's date
+            setResultOutput(parsedData.resultOutput);
+            setIncome(parsedData.income);
+            setExpenses(parsedData.expense);
+            setBalance(parsedData.balance);
+            setSelectedIcon(parsedData.selectedIcon);
+          } else {
+            // Data is outdated, clear it
+            await AsyncStorage.removeItem('dataForToday');
+          }
+        }
+      } catch (error) {
+        console.error('Error loading stored data:', error);
+      }
+    };
+
+   const saveData = async () => {
+      try {
+        const dataToStore = {
+          date: getTodayDate(),
+          resultOutput,
+          income,
+          expense,
+          balance,
+          selectedIcon,
+        };
+        await AsyncStorage.setItem('dataForToday', JSON.stringify(dataToStore));
+      } catch (error) {
+        console.error('Error saving data:', error);
+      }
+    };
+
+
+    useEffect(() => {
+      loadStoredData();
+    }, []);
+
+    useEffect(() => {
+      saveData();
+    }, [resultOutput, income, expense, balance, selectedIcon]);
+
 
     return(
 

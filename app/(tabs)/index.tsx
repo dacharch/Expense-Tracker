@@ -66,16 +66,17 @@ const Index = () => {
           </View>
         )}
       </View>
-
+      <ScrollView>
       <View>
-        <ScrollView>
+       
           {selectedIcon ? (
-            resultOutput.map((item: any) => <Records key={item.id} item={item} />)
+            resultOutput.map((item: any) => <Records  key={item.id} item={item} />)
           ) : (
             <RecordIcon />
           )}
-        </ScrollView>
+       
       </View>
+      </ScrollView>
     </>
   );
 };

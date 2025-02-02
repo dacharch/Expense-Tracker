@@ -28,7 +28,7 @@ export default function TabLayout() {
               name={focused ? 'home-sharp' : 'home-outline'}
               color={color}
               size={30} // Icon size for home
-              style={{ transform: [{ scale: focused ? 1.2 : 1 }] }} // Scaling effect for focus
+              style={{ transform: [{ scale: focused ? 1.3 : 1 }] }} // Scaling effect for focus
             />
           ),
           tabBarLabelStyle: {
