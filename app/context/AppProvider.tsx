@@ -52,14 +52,12 @@ export const AppProvider:React.FC<AppProviderProps>= ({children}:any) =>{
         if (storedData) {
           const parsedData = JSON.parse(storedData);
           if (parsedData.date === getTodayDate()) {
-            // Only load the data if it matches today's date
             setResultOutput(parsedData.resultOutput);
             setIncome(parsedData.income);
             setExpenses(parsedData.expense);
             setBalance(parsedData.balance);
             setSelectedIcon(parsedData.selectedIcon);
           } else {
-            // Data is outdated, clear it
             await AsyncStorage.removeItem('dataForToday');
           }
         }
@@ -93,9 +91,7 @@ export const AppProvider:React.FC<AppProviderProps>= ({children}:any) =>{
       saveData();
     }, [resultOutput, income, expense, balance, selectedIcon]);
 
-
     return(
-
      <MyContext.Provider value={{
               keyboardVisible,setKeyboardVisible,
               iconName,setIconName,

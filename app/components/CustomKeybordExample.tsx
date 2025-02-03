@@ -16,8 +16,6 @@ const CustomKeyboardExample = () => {
   } = useMyContext();
 
   const submit_Data = () => {
-
-
     if (selected) {
       setResultOutput((prev: any) => [
         ...prev,

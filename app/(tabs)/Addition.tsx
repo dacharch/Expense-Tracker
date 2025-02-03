@@ -42,7 +42,7 @@ const Addition = () => {
 
 const styles = StyleSheet.create({
   container: {
-    backgroundColor: '#3B5998',  // Dark Blue Background
+    backgroundColor: '#4A90E2',  // Dark Blue Background
     textAlign: "center",
     color: 'black',
     paddingVertical: 20,
@@ -67,7 +67,7 @@ const styles = StyleSheet.create({
     fontSize: 20,
     fontWeight: 'bold',
     width: 150,
-    backgroundColor: '#3B5998',  // Red for selected (vibrant and eye-catching)
+    backgroundColor: '#4A90E2',  // Red for selected (vibrant and eye-catching)
     color: 'white',
     paddingVertical: 12,
     paddingHorizontal: 25,

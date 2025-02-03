@@ -1,13 +1,14 @@
-import { Ionicons } from '@expo/vector-icons';
 import React, { useEffect, useState } from 'react';
-import { View, Text, StyleSheet, TouchableOpacity, Platform } from 'react-native';
+import { View, Text, StyleSheet, TouchableOpacity, Platform, Pressable } from 'react-native';
 import Records from '../components/Records';
 import { useMyContext } from '../context/AppProvider';
 import RecordIcon from '../components/RecordIcon';
 import { ScrollView } from 'react-native';
+import AsyncStorage from "@react-native-async-storage/async-storage";
+
 
 const Index = () => {
-  const { income, setIncome, expense, setExpenses, balance, setBalance, selectedIcon, resultOutput } = useMyContext();
+  const { income, setIncome, expense, setExpenses, balance, setBalance, selectedIcon,setSelectedIcon, resultOutput } = useMyContext();
 
   const getDate = () => {
     const event = new Date();
@@ -28,6 +29,20 @@ const Index = () => {
     setExpenses(expense);
   }, [resultOutput]);
 
+
+  const removeItem = ()=>{
+     
+    AsyncStorage.removeItem('income') ;
+    AsyncStorage.removeItem('balance') ;
+    AsyncStorage.removeItem('expense') ;
+    setBalance(0) ;
+    setIncome(0) ;
+    setExpenses(0) ;
+
+    AsyncStorage.removeItem('dataForToday') ;
+    setSelectedIcon(false) ;
+    
+  }
   return (
     <>
       <View style={styles.container}>
@@ -49,6 +64,10 @@ const Index = () => {
             <Text style={styles.text_font}>{balance}</Text>
           </View>
         </View>
+
+        <Pressable onPress={removeItem} style={styles.button_container}>
+            <Text style={styles.button_font_text}>Remove all the records</Text>
+        </Pressable>
 
         {selectedIcon && (
           <View style={styles.record_date_container}>
@@ -95,6 +114,22 @@ const styles = StyleSheet.create({
     marginBottom: 30,
   },
 
+  button_container:{
+    backgroundColor: '#4A90E2',
+    textAlign:'center',
+    padding:20,
+    marginBottom:5,
+    borderRadius:10,
+
+  },
+
+  button_font_text:{
+    color:'#fff',
+    textAlign:'center',
+    fontWeight:'bold',
+    fontSize:20,
+  },
+
   text_container: {
     textAlign: 'center',
     fontSize: 26,
@@ -117,9 +152,9 @@ const styles = StyleSheet.create({
     paddingHorizontal: 10,
     alignItems: 'center',
     justifyContent: 'center',
-    flex: 1, // Allow the box to grow with the content
-    height: 'auto', // Make the box auto-adjust based on content
-    marginHorizontal: 5, // Add some margin between boxes
+    flex: 1, 
+    height: 'auto', 
+    marginHorizontal: 5, 
     shadowColor: '#000',
     shadowOffset: { width: 0, height: 4 },
     shadowOpacity: 0.1,
